@@ -1,0 +1,568 @@
+:root {
+  --color-white: white;
+  --color-black: black;
+  --primary-color: rgb(0, 157, 255);
+  --secondary-color: rgb(255, 0, 255);
+  --body-font: 'Roboto', sans-serif;
+}
+
+/* -----CSS RESET----- */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+/* Prevent font size inflation */
+html {
+  font-size: 14px;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul, ol {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.4;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-black);
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+/* -----CSS RESET----- */
+
+/* --- HEADER --- */
+header {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  background-color: rgb(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  color: var(--color-white);
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  z-index: 1000;
+}
+
+.logo {
+  color: var(--color-white);
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-wrap: nowrap;
+  transition: 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+li a {
+  position: relative;
+  color: var(--color-white);
+  font-weight: 300;
+}
+
+li a::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 5px;
+  left: 0;
+  top: 25px;
+  border-radius: 1rem;
+  transition: 0.3s ease-in-out;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+li a:hover::before {
+  width: 100%;
+}
+
+.visit-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 3rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  cursor: pointer;
+  text-wrap: nowrap;
+  transition: 0.3s ease-in-out;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.visit-btn:hover {
+  transform: scale(1.03);
+}
+
+#menu-icon {
+  font-size: 2rem;
+  display: none;
+}
+/* --- END HEADER --- */
+
+/* --- ABOUT SECTION --- */
+section {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 12%;
+  width: 100%;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about .about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+
+.about img {
+  border-radius: 50%;
+  width: 24rem;
+  height: 24rem;
+  object-fit: cover;
+}
+
+.about .info-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.info-box h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.info-box h1 {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.info-box span {
+  font-size: 2rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem;
+  border: 2px solid var(--color-black);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-wrap: nowrap;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+.socials {
+  display: flex;
+  gap: 2rem;
+}
+
+.socials i {
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.socials i:hover {
+  transform: scale(1.1);
+}
+/* --- END ABOUT SECTION --- */
+
+/* --- EXPERIENCE SECTION --- */
+.section-title {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.experience-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.experience img {
+  width: 22vw;
+  border-radius: 3rem;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  border-radius: 3rem;
+  border: 2px solid var(--color-black);
+  justify-content: left;
+  align-items: baseline;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.exp-card:hover {
+  transform: scale(1.02);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.exp-card i {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.exp-card span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background-clip: text;
+  color: transparent;
+  text-wrap: nowrap;
+}
+/* --- END EXPERIENCE SECTION --- */
+
+/* --- PROJECTS SECTION --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+  border-radius: 3rem;
+  border: 2px solid var(--color-black);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-10px)scale(1.02);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.project-card h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.project-card:hover .btn {
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.project-card:hover .btn:hover {
+  border: 2px solid var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+/* --- END PROJECTS SECTION --- */
+
+/* --- CONTACT SECTION --- */
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+form>input {
+  border: 2px solid var(--color-black);
+  border-radius: 3rem;
+  padding: 2rem 4rem;
+}
+
+form>textarea {
+  border: 2px solid var(--color-black);
+  border-radius: 3rem;
+  padding: 2rem 4rem;
+  resize: none;
+}
+/* --- END CONTACT SECTION --- */
+
+/* --- FOOTER --- */
+footer {
+  bottom: 0;
+  left: 0;
+  height: 10rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+footer ul li a {
+  font-size: 1rem;
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.copyright {
+  font-weight: 300;
+  margin-top: 2rem;
+}
+/* --- END FOOTER --- */
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 1280px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  .about .about-container {
+    gap: 3rem;
+  }
+
+  .about img {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .experience img {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  header .visit-btn {
+    display: none;
+  }
+
+  .info-box h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+
+  .info-box h3 {
+    font-size: 1.4rem;
+  }
+
+  .info-box h1 {
+    font-size: 3rem;
+  }
+
+  .info-box span {
+    font-size: 1.6rem;
+  }
+
+  .about img {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .contact-box {
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  form {
+    gap: 1rem;
+  }
+
+  form>input {
+    padding: 1rem 2rem;
+  }
+
+  form>textarea {
+    padding: 1rem 2rem;
+  }
+
+  .exp-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  header #menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    color: var(--color-white);
+    border-radius: 3rem;
+    display: none;
+  }
+
+  .nav-links li {
+    margin: 1.5rem;
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .about .about-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header {
+    padding: 1rem 4rem;
+    gap: 2rem;
+  }
+}
+/* --- END RESPONSIVENESS --- */
